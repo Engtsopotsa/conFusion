@@ -1,64 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // import dish interface
 import { Dish } from '../shared/dish';
 
+// import dishes constant
+import { DISHES } from '../shared/dishes';
+
 // moved the dishes property into the constant
-const DISHES: Dish[] = [
-  {
-    id: '0',
-    name: 'Uthappizza',
-    image: 'https://dummyimage.com/640x4:3',
-    category: 'mains',
-    featured: true,
-    label: 'Hot',
-    price: '4.99',
-    // tslint:disable-next-line:max-line-length
-    description:
-      'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
-  },
-  {
-    id: '1',
-    name: 'Zucchipakoda',
-    image: 'https://dummyimage.com/640x4:3',
-    category: 'appetizer',
-    featured: false,
-    label: '',
-    price: '1.99',
-    description:
-      'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce',
-  },
-  {
-    id: '2',
-    name: 'Vadonut',
-    image: 'https://dummyimage.com/640x4:3',
-    category: 'appetizer',
-    featured: false,
-    label: 'New',
-    price: '1.99',
-    description:
-      'A quintessential ConFusion experience, is it a vada or is it a donut?',
-  },
-  {
-    id: '3',
-    name: 'ElaiCheese Cake',
-    image: 'https://dummyimage.com/640x4:3',
-    category: 'dessert',
-    featured: false,
-    label: '',
-    price: '2.99',
-    description:
-      'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
-  },
-];
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
   // hard coded dishes
   dishes: Dish[] = DISHES;
-  selectedDish = DISHES[0];
+  selectedDish: Dish = {
+    id: '',
+    name: '',
+    image: '',
+    category: '',
+    featured: false,
+    label: '',
+    price: '',
+    description: '',
+    comments: [],
+  };
+
+  onSelect(dish: Dish) {
+    this.selectedDish = dish;
+    console.log('Selected dish:', dish);
+  }
+
+  constructor() {}
+
+  ngOnInit(): void {}
 }

@@ -1,1 +1,37 @@
-<p>dishdetail works!</p>
+<div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="dish">
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-header">
+        <h3 class="card-title">{{ dish.name | uppercase }}</h3>
+      </div>
+      <img src="{{ dish.image }}" class="card-img-top" alt="{{ dish.name }}" />
+      <div class="card-body">
+        <h5 class="card-title">{{ dish.name }}</h5>
+        <p class="card-text">{{ dish.description }}</p>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary me-2">LIKE</button>
+        <button class="btn btn-secondary">SHARE</button>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div>
+      <h2>comments</h2>
+    </div>
+    <div class="m-4">
+      <div
+        class="card"
+        style="width: 300px"
+        *ngFor="let comment of dish.comments"
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{ comment.author }}</h5>
+          <h6 class="card-subtitle mb-3 text-muted">{{ comment.rating }}</h6>
+          <p class="card-text">{{ comment.comment }}</p>
+          <p class="card-text">{{ comment.date | date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

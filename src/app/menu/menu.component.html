@@ -5,7 +5,7 @@
   </div>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
     <div *ngFor="let dish of dishes" class="col">
-      <div class="card h-100">
+      <div class="card h-100" (click)="onSelect(dish)">
         <img
           src="{{ dish.image }}"
           class="card-img-top"
@@ -22,51 +22,5 @@
     <hr />
   </div>
 
-  <!-- <div class="d-flex" *ngIf="selectedDish">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">{{ selectedDish.name | uppercase }}</h3>
-      </div>
-      <img
-        class="card-img-top"
-        src="{{ selectedDish.image }}"
-        alt="{{ selectedDish.name }}"
-      />
-      <div class="card-body">
-        <p class="card-text">{{ selectedDish.description }}</p>
-      </div>
-      <div class="card-footer">
-        <button class="btn btn-primary me-2">LIKE</button>
-        <button class="btn btn-secondary">SHARE</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-    <div *ngIf="selectedDish" class="col">
-      <div class="card h-100">
-        <div class="card-header">
-          <h3 class="card-title">{{ selectedDish.name | uppercase }}</h3>
-        </div>
-        <img
-          src="{{ selectedDish.image }}"
-          class="card-img-top"
-          alt="{{ selectedDish.name }}"
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{ selectedDish.name }}</h5>
-          <p class="card-text">{{ selectedDish.description }}</p>
-        </div>
-        <div class="card-footer">
-          <button class="btn btn-primary me-2">LIKE</button>
-          <button class="btn btn-secondary">SHARE</button>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div>
-        <h2>comments</h2>
-      </div>
-    </div>
-  </div>
+  <app-dishdetail [dish]="selectedDish"></app-dishdetail>
 </div>
