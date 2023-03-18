@@ -5,22 +5,27 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
-import { HeaderComponent } from './header/header.component';
+import { DishService } from './services/dish.service';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     DishdetailComponent,
+    FooterComponent,
     HeaderComponent,
-    FooterComponent
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
   ],
-  imports: [
-    BrowserModule,
-    NgbModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, NgbModule, AppRoutingModule],
+  providers: [DishService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

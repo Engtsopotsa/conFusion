@@ -4,7 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { Dish } from '../shared/dish';
 
 // import dishes constant
-import { DISHES } from '../shared/dishes';
+
+// services
+import { DishService } from '../services/dish.service';
 
 // moved the dishes property into the constant
 
@@ -15,7 +17,7 @@ import { DISHES } from '../shared/dishes';
 })
 export class MenuComponent implements OnInit {
   // hard coded dishes
-  dishes: Dish[] = DISHES;
+  dishes!: Dish[];
   selectedDish: Dish = {
     id: '',
     name: '',
@@ -33,7 +35,9 @@ export class MenuComponent implements OnInit {
     console.log('Selected dish:', dish);
   }
 
-  constructor() {}
+  constructor(private dishService: DishService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.dishes = this.dishService.getDishes();
+  }
 }
