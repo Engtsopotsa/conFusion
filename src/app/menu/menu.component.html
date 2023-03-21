@@ -4,8 +4,12 @@
     <hr />
   </div>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-    <div *ngFor="let dish of dishes" class="col">
-      <div class="card h-100" (click)="onSelect(dish)">
+    <div
+      *ngFor="let dish of dishes"
+      [routerLink]="['/dishdetail', dish.id]"
+      class="col"
+    >
+      <div class="card h-100">
         <img
           src="{{ dish.image }}"
           class="card-img-top"
@@ -21,6 +25,4 @@
   <div>
     <hr />
   </div>
-
-  <app-dishdetail [dish]="selectedDish"></app-dishdetail>
 </div>

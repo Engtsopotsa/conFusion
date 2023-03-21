@@ -1,1 +1,23 @@
-<p>home works!</p>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 g-4" style="justify-content: space-around; align-items: center;">
+    <div class="col">
+      <div class="card" *ngIf="dish">
+        <img src={{dish.image}} class="card-img-top" alt={{dish.name}}>
+        <div class="card-body">
+          <h5 class="card-title">{{dish.name | uppercase}}</h5>
+          <p class="card-text">{{dish.description}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" *ngIf="promotion">
+        <img src={{promotion.image}} class="card-img-top" alt={{promotion.name}}>
+        <div class="card-body">
+          <h5 class="card-title">{{promotion.name | uppercase}}</h5>
+          <p class="card-text">{{promotion.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
