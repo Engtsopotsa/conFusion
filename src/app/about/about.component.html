@@ -1,1 +1,100 @@
-<p>about works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>About Us</h3>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-9">
+      <h2>Our History</h2>
+      <p>
+        Started in 2010, Ristorante con Fusion quickly established itself as a
+        culinary icon par excellence in Hong Kong. With its unique brand of
+        world fusion cuisine that can be found nowhere else, it enjoys patronage
+        from the A-list clientele in Hong Kong. Featuring four of the best
+        three-star Michelin chefs in the world, you never know what will arrive
+        on your plate the next time you visit us.
+      </p>
+      <p>
+        The restaurant traces its humble beginnings to <em>The Frying Pan</em>,
+        a successful chain started by our CEO, Mr. Peter Pan, that featured for
+        the first time the world's best cuisines in a pan.
+      </p>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-header">
+          <h2>Facts At a Glance</h2>
+        </div>
+        <div class="card-body">
+          <dl>
+            <dt>Started</dt>
+            <dd>3 Feb. 2013</dd>
+            <dt>Major Stake Holder</dt>
+            <dd>HK Fine Foods Inc.</dd>
+            <dt>Last Year's Turnover</dt>
+            <dd>$1,250,375</dd>
+            <dt>Employees</dt>
+            <dd>40</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <blockquote class="card-body">
+          <h3>
+            You better cut the pizza in four pieces because I'm not hungry
+            enough to eat six.
+          </h3>
+          <footer class="blockquote-footer">
+            -- Yogi Berra,
+            <cite
+              >The Wit and Wisdom of Yogi Berra, P. Pepe, Diversion Books,
+              2014</cite
+            >
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h2>Corporate Leadership</h2>
+      <p>Display the details of the corporate leaders here</p>
+
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>Corporate Leadership</h2>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let leader of leaders">
+                <div class="d-flex align-items-center">
+                  <img
+                    src="{{ leader.image }}"
+                    alt="{{ leader.name }}"
+                    class="rounded-circle me-3"
+                    width="50"
+                    height="50"
+                  />
+                  <div>
+                    <h3 class="mb-0">{{ leader.name }}</h3>
+                    <p class="text-muted mb-1">{{ leader.designation }}</p>
+                    <p class="mb-0">{{ leader.description }}</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
