@@ -36,6 +36,48 @@
           <h4>Map of our Location</h4>
         </div>
       </div>
+      <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
+
+<form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label for="firstname" class="form-label">First Name</label>
+      <input id="firstname" class="form-control" formControlName="firstname" type="text" placeholder="First Name">
+    </div>
+    <div class="col-md-6">
+      <label for="lastname" class="form-label">Last Name</label>
+      <input id="lastname" class="form-control" formControlName="lastname" type="text" placeholder="Last Name">
+    </div>
+    <div class="col-md-6">
+      <label for="telnum" class="form-label">Tel. Number</label>
+      <input id="telnum" class="form-control" formControlName="telnum" type="tel" placeholder="Tel. Number">
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input id="email" class="form-control" formControlName="email" type="email" placeholder="Email">
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input id="agree" class="form-check-input" formControlName="agree" type="checkbox">
+        <label for="agree" class="form-check-label">May we contact you?</label>
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="contacttype" class="form-label">How?</label>
+      <select id="contacttype" class="form-select" formControlName="contacttype">
+        <option *ngFor="let ctype of contactType" [value]="ctype">{{ ctype }}</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <label for="message" class="form-label">Your Feedback</label>
+      <textarea id="message" class="form-control" formControlName="message" rows="12" placeholder="Your Feedback"></textarea>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+
     </div>
   </div>
 </div>
